@@ -5,7 +5,7 @@
 from better_launch import BetterLaunch, launch_this
 
 
-@launch_this(ui=False)
+@launch_this(ui=True)
 def robot_launch():
     bl = BetterLaunch()
 

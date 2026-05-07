@@ -27,6 +27,7 @@ DEFAULT_GRAMMAR = (
     "left",
     "explore",
     "describe",
+    "objects",
     "status",
     "help",
 )
@@ -47,6 +48,7 @@ TUNED_VOICE_PARAMETERS = {
         "live_filter": True,           # apply highpass/lowpass bandpass filter to mic input
         "vosk_model": "small",         # "small" or "large" — see VOSK_MODEL_PATHS
         "grammar": list(DEFAULT_GRAMMAR),  # constrained Vosk vocabulary; must include every phrase in intent_mapper
+                                           # DEFAULT_GRAMMAR is source of truth — this line keeps them in sync
         "silence_dbfs": None,          # override silence floor (dBFS); None = auto from noise window
         "silence_margin": 5.0,         # dB above noise floor to classify as silence
         "silence_secs": 1.0,           # seconds of silence to end a command

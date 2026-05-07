@@ -12,6 +12,7 @@ PHRASE_INTENTS = (
     (("left",),     "turn_left"),
     (("explore",),  "explore"),
     (("describe",), "describe_scene"),
+    (("objects",),  "list_objects"),
     (("status",),   "get_status"),
     (("help",),     "get_help"),
 )

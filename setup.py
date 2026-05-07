@@ -9,6 +9,7 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch', ['launch/robot.launch.py', 'launch/remote.launch.py']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -19,6 +20,7 @@ setup(
     entry_points={
         'console_scripts': [
             'voice_smoke_test = robot_voice.runtime:main',
+            'voice_input = robot_voice.voice_input_node:main',
         ],
     },
 )

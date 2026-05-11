@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Simple audio feedback tones for voice state transitions."""
+"""
+audio_feedback.py — simple audio feedback tones for voice state transitions.
+
+Author: Pito Salas and Claude Code
+Open Source Under MIT license
+"""
 
 import math
 import os

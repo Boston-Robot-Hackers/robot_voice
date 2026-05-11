@@ -10,23 +10,15 @@ This package was extracted from `control/voice/` to be a standalone, ROS-free vo
 ## What Is Built
 
 - `runtime.py` — `VoiceRuntime`, `VoiceRuntimeConfig`, `load_voice_runtime_config`, full pipeline
-- `intent_mapper.py` — `IntentMapper`: transcript → intent dict (7 commands)
+- `intent_mapper.py` — `IntentMapper`: transcript → intent dict (8 commands: stop, right, left, explore, describe, objects, status, help)
 - `audio_feedback.py` — `beep()` via aplay
 - `__init__.py` — public API surface
-- `test/` — 21 passing tests, 2 pre-existing failures in `test_voice_runtime.py`
+- `test/` — 29 passing tests (all green)
+- `01-literate/` — literate docs for runtime.py
 
 ## Known Issues
 
-- 2 test failures in `test_voice_runtime.py` (`test_capture_command_returns_transcript_text`,
-  `test_voice_runtime_next_turn_uses_fake_models`) — pre-existing before extraction, not regressions.
-- Empty STT turns on hardware: debug fields (`floor`, `cutoff`, `command_started`, `raw_text`)
-  are logged by `voice_input_node` in control. Next: observe on hardware.
-
-## Likely Next Steps
-
-1. Fix the 2 failing unit tests.
-2. Create `02-doc/notes.md` with architecture decisions.
-3. Set up git repo if separating from control workspace.
+None. All 29 tests pass.
 
 ## Quick Commands
 

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""ROS2 node: openWakeWord + Vosk STT + intent mapper → /intent."""
+"""
+voice_input_node.py — ROS2 node: openWakeWord + Vosk STT + intent mapper → /intent.
+
+Author: Pito Salas and Claude Code
+Open Source Under MIT license
+"""
 
 import json
 import os

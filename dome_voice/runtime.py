@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""ROS-free voice runtime configuration helpers."""
+"""
+runtime.py — ROS-free voice pipeline: wake detection, STT, and turn capture.
 
-from __future__ import annotations
+Author: Pito Salas and Claude Code
+Open Source Under MIT license
+"""
 
 import argparse
 import collections

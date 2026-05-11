@@ -144,7 +144,8 @@ def test_capture_command_returns_transcript_text():
     assert result["text"] == "go forward"
     assert result["raw_text"] == "alexa go forward"
     assert result["empty"] is False
-    assert "go forward" in vosk.grammar
+    assert "stop" in vosk.grammar
+    assert "[unk]" in vosk.grammar
 
 
 def test_voice_runtime_next_turn_uses_fake_models():
@@ -152,6 +153,7 @@ def test_voice_runtime_next_turn_uses_fake_models():
         load_voice_runtime_config(),
         threshold=0.3,
         wake_hits=1,
+        wake_cooldown_secs=0.0,
         min_command_secs=0.0,
         max_command_secs=1.0,
         silence_dbfs=-80.0,

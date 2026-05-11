@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'robot_voice'
+package_name = 'dome_voice'
 
 setup(
     name=package_name,
@@ -19,8 +19,8 @@ setup(
     license='MIT',
     entry_points={
         'console_scripts': [
-            'voice_smoke_test = robot_voice.runtime:main',
-            'voice_input = robot_voice.voice_input_node:main',
+            'voice_smoke_test = dome_voice.runtime:main',
+            'voice_input = dome_voice.voice_input_node:main',
         ],
     },
 )

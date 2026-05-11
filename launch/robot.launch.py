@@ -10,6 +10,7 @@ def robot_launch():
     bl = BetterLaunch()
 
     bl.node(
-        "robot_voice",
+        "dome_voice",
         "voice_input",
+        name="voice_input",
     )

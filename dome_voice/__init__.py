@@ -1,6 +1,6 @@
-from robot_voice.audio_feedback import beep
-from robot_voice.intent_mapper import IntentMapper, map_intent
-from robot_voice.runtime import (
+from dome_voice.audio_feedback import beep
+from dome_voice.intent_mapper import IntentMapper, map_intent
+from dome_voice.runtime import (
     VoiceRuntime,
     VoiceRuntimeConfig,
     VoiceTurn,

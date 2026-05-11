@@ -8,6 +8,6 @@ Read and follow all rules in the `.claude/` folder:
 - `02-doc/current.md` — session handoff and current status
 - `02-doc/notes.md` — semi-permanent project notes
 
-We are developing robot_voice, a ROS-free voice pipeline package. Literate docs are in `01-literate/`,
+We are developing dome_voice, a ROS-free voice pipeline package. Literate docs are in `01-literate/`,
 project docs are in `02-doc/`, features are in `03-features/`, tasks are in
 `04-tasks/`, issues are in `05-issues/`, and the spec is in `02-doc/spec.md`.

@@ -1,4 +1,4 @@
-# robot_voice — Notes
+# dome_voice — Notes
 
 ## Extraction from control/
 

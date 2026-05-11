@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from robot_voice.runtime import (
+from dome_voice.runtime import (
     DEFAULT_GRAMMAR,
     config_from_tune_mapping,
     load_voice_runtime_config,

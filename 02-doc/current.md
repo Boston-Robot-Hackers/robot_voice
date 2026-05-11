@@ -1,8 +1,8 @@
-# robot_voice — Current Session Handoff
+# dome_voice — Current Session Handoff
 
 ## Snapshot
 
-**Branch:** `main` (lives inside `ros2_ws/src/robot_voice/`, sibling to `control/`)
+**Branch:** `main` (lives inside `ros2_ws/src/dome_voice/`, sibling to `control/`)
 
 This package was extracted from `control/voice/` to be a standalone, ROS-free voice pipeline.
 `control/` consumes it via `voice_input_node.py` (the only ROS adapter).
@@ -32,11 +32,11 @@ This package was extracted from `control/voice/` to be a standalone, ROS-free vo
 
 ```bash
 # Build
-colcon build --packages-select robot_voice
+colcon build --packages-select dome_voice
 
 # Test
 python3 -m pytest test/
 
 # Smoke test (hardware)
-python3 -m robot_voice.runtime --trials 5
+python3 -m dome_voice.runtime --trials 5
 ```

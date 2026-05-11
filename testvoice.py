@@ -2,9 +2,9 @@
 """Standalone voice test — no ROS. Listens for wake word, captures one command, prints debug."""
 
 import sys
-sys.path.insert(0, "/home/pitosalas/ros2_ws/src/robot_voice")
+sys.path.insert(0, "/home/pitosalas/ros2_ws/src/dome_voice")
 
-from robot_voice.runtime import (
+from dome_voice.runtime import (
     VoiceRuntime,
     load_voice_runtime_config,
     rms_dbfs,
@@ -72,7 +72,7 @@ def main():
             else:
                 print(f"  raw_text={turn.raw_text!r} but text empty after clean_transcript")
         else:
-            from robot_voice.intent_mapper import map_intent
+            from dome_voice.intent_mapper import map_intent
             intent = map_intent(turn.text)
             print(f"INTENT: {intent}")
     finally:

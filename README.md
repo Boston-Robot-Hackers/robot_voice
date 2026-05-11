@@ -1,4 +1,4 @@
-# robot_voice
+# dome_voice
 
 ROS-free voice pipeline: wake word detection, speech-to-text, intent mapping, and audio feedback for robot control.
 
@@ -6,7 +6,7 @@ ROS-free voice pipeline: wake word detection, speech-to-text, intent mapping, an
 
 ```bash
 # Within a ROS2 workspace:
-colcon build --packages-select robot_voice
+colcon build --packages-select dome_voice
 source install/setup.bash
 ```
 
@@ -14,9 +14,9 @@ source install/setup.bash
 
 ```bash
 # Smoke test (hardware required):
-python3 -m robot_voice.runtime --trials 5
+python3 -m dome_voice.runtime --trials 5
 # or via entry point:
-ros2 run robot_voice voice_smoke_test --trials 5
+ros2 run dome_voice voice_smoke_test --trials 5
 ```
 
 ## Development

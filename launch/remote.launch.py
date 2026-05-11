@@ -10,6 +10,6 @@ def remote_launch():
     bl = BetterLaunch()
 
     bl.node(
-        "robot_voice",
+        "dome_voice",
         "voice_input",
     )

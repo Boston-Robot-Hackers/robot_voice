@@ -1,4 +1,4 @@
-# robot_voice — Spec
+# dome_voice — Spec
 
 ## Purpose
 
@@ -17,7 +17,7 @@ mic (arecord) → stereo→mono → bandpass filter
 ## Public API
 
 ```python
-from robot_voice import (
+from dome_voice import (
     VoiceRuntime,        # main loop: next_turn() → VoiceTurn
     VoiceTurn,           # dataclass: text, raw_text, wake_score, empty, metadata
     VoiceRuntimeConfig,  # frozen dataclass of all tuned parameters
@@ -29,7 +29,7 @@ from robot_voice import (
 
 ## Configuration
 
-All tuned hardware parameters live in `robot_voice/runtime.py:TUNED_VOICE_PARAMETERS`. Override via:
+All tuned hardware parameters live in `dome_voice/runtime.py:TUNED_VOICE_PARAMETERS`. Override via:
 - env var `CONTROL_VOICE_TUNE_CONFIG` or `VOICE_TUNE_CONFIG` pointing to a tune YAML
 - `load_voice_runtime_config(path=...)` directly
 

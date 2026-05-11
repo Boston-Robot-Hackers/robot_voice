@@ -8,7 +8,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 
-from robot_voice import IntentMapper, VoiceRuntime, VoiceTurn, beep, load_voice_runtime_config
+from dome_voice import IntentMapper, VoiceRuntime, VoiceTurn, beep, load_voice_runtime_config
 
 VOICE_STATES = ("IDLE", "LISTENING", "PROCESSING", "SPEAKING")
 

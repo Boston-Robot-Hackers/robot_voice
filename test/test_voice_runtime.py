@@ -4,7 +4,7 @@ from dataclasses import replace
 
 import numpy as np
 
-from robot_voice.runtime import (
+from dome_voice.runtime import (
     CHUNK,
     LiveBandpass,
     VoiceRuntime,
@@ -75,7 +75,7 @@ def stereo_chunk(left, right=None, n=CHUNK):
 
 
 def test_runtime_module_has_no_ros_import():
-    import robot_voice.runtime as runtime
+    import dome_voice.runtime as runtime
 
     assert not hasattr(runtime, "rclpy")
 

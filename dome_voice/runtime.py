@@ -274,7 +274,7 @@ def load_voice_runtime_config(
         source_path = str(config_path)
     else:
         data = TUNED_VOICE_PARAMETERS
-        source_path = "robot_voice.runtime:TUNED_VOICE_PARAMETERS"
+        source_path = "dome_voice.runtime:TUNED_VOICE_PARAMETERS"
     config = config_from_tune_mapping(data, source_path=source_path)
     if overrides:
         config = apply_config_overrides(config, overrides)

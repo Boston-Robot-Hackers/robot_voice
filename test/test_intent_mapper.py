@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from robot_voice.intent_mapper import IntentMapper, map_intent
+from dome_voice.intent_mapper import IntentMapper, map_intent
 
 
 def test_describe_scene():

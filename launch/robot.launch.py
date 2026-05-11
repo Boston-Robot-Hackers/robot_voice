@@ -12,5 +12,4 @@ def robot_launch():
     bl.node(
         "robot_voice",
         "voice_input",
-        "voice_input",
     )

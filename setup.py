@@ -21,6 +21,7 @@ setup(
         'console_scripts': [
             'voice_smoke_test = dome_voice.runtime:main',
             'voice_input = dome_voice.voice_input_node:main',
+            'speech_output = dome_voice.speech_output_node:main',
         ],
     },
 )

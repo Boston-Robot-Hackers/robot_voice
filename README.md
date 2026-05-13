@@ -13,6 +13,10 @@ source install/setup.bash
 ## Usage
 
 ```bash
+# Robot launch uses these deployment-specific paths when speech output is enabled:
+export PIPER_BIN=/path/to/piper
+export PIPER_MODEL_PATH=/path/to/voice-model.onnx
+
 # Smoke test (hardware required):
 python3 -m dome_voice.runtime --trials 5
 # or via entry point:

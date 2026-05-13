@@ -2,16 +2,19 @@
 # robot.launch.py — voice nodes for the physical robot (Seeed board assumed present)
 # Author: Pito Salas and Claude Code
 # Open Source Under MIT license
-from better_launch import BetterLaunch, launch_this
+import os
 
-PIPER_BIN = "/home/pitosalas/ros2_ws/src/dome_control/bin/piper/piper"
-PIPER_MODEL_PATH = (
-    "/home/pitosalas/ros2_ws/src/dome_control/piper_model/en_US-lessac-medium.onnx"
-)
+from better_launch import BetterLaunch, launch_this
 
 
 @launch_this(ui=True)
-def robot_launch():
+def robot_launch(
+    piper_bin: str = os.environ.get("PIPER_BIN", "piper"),
+    piper_model_path: str = os.environ.get("PIPER_MODEL_PATH", ""),
+    piper_length_scale: str = os.environ.get("PIPER_LENGTH_SCALE", "1.0"),
+    speech_gain: str = os.environ.get("SPEECH_GAIN", "0.25"),
+    speech_alsa_device: str = os.environ.get("SPEECH_ALSA_DEVICE", "plughw:0,0"),
+):
     bl = BetterLaunch()
 
     bl.node(
@@ -25,10 +28,10 @@ def robot_launch():
         "speech_output",
         "speech_output",
         env={
-            "PIPER_BIN": PIPER_BIN,
-            "PIPER_MODEL_PATH": PIPER_MODEL_PATH,
-            "PIPER_LENGTH_SCALE": "1.0",
-            "SPEECH_GAIN": "0.25",
-            "SPEECH_ALSA_DEVICE": "plughw:0,0",
+            "PIPER_BIN": piper_bin,
+            "PIPER_MODEL_PATH": piper_model_path,
+            "PIPER_LENGTH_SCALE": piper_length_scale,
+            "SPEECH_GAIN": speech_gain,
+            "SPEECH_ALSA_DEVICE": speech_alsa_device,
         },
     )

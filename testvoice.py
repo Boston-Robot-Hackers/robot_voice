@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 """Standalone voice test — no ROS. Listens for wake word, captures one command, prints debug."""
 
-import sys
-sys.path.insert(0, "/home/pitosalas/ros2_ws/src/dome_voice")
-
 from dome_voice.runtime import (
     VoiceRuntime,
     load_voice_runtime_config,

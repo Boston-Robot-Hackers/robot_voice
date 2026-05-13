@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""ROS2 node: subscribe to /announcement and speak via Piper + ALSA."""
+# speech_output_node.py — ROS2 node: subscribe to /announcement and speak via Piper + ALSA
+# Author: Pito Salas and Claude Code
+# Open Source Under MIT license
 
 import os
 import struct
@@ -51,7 +53,7 @@ def play_wav(wav_path: str, alsa_device: str = "") -> None:
     subprocess.run(cmd, check=True, capture_output=True)
 
 
-def _scale_pcm_frames(frames: bytes, sample_width: int, gain: float) -> bytes:
+def scale_pcm_frames(frames: bytes, sample_width: int, gain: float) -> bytes:
     if sample_width not in (1, 2, 4):
         raise ValueError(f"Unsupported WAV sample width: {sample_width}")
 
@@ -79,7 +81,7 @@ def apply_wav_gain(input_path: str, output_path: str, gain: float) -> None:
         params = source.getparams()
         frames = source.readframes(source.getnframes())
 
-    adjusted = _scale_pcm_frames(frames, params.sampwidth, gain)
+    adjusted = scale_pcm_frames(frames, params.sampwidth, gain)
 
     with wave.open(output_path, "wb") as target:
         target.setparams(params)
@@ -138,7 +140,7 @@ class SpeechOutputNode(Node):
         except Exception as exc:
             self.get_logger().error(f"Speech output failed: {exc}")
 
-    def _make_wav_path(self) -> str:
+    def make_wav_path(self) -> str:
         fd, path = tempfile.mkstemp(
             prefix="speech-output-",
             suffix=".wav",
@@ -148,7 +150,7 @@ class SpeechOutputNode(Node):
         return path
 
     def speak_text(self, text: str) -> None:
-        wav_path = self._make_wav_path()
+        wav_path = self.make_wav_path()
         playback_path = wav_path
         gained_path = None
         try:
@@ -160,7 +162,7 @@ class SpeechOutputNode(Node):
                 length_scale=self.length_scale,
             )
             if self.speech_gain != 1.0:
-                gained_path = self._make_wav_path()
+                gained_path = self.make_wav_path()
                 apply_wav_gain(wav_path, gained_path, self.speech_gain)
                 playback_path = gained_path
             play_wav(playback_path, alsa_device=self.alsa_device)

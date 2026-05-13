@@ -177,7 +177,7 @@ def test_speak_text_applies_gain_when_configured(mock_synth, mock_gain, mock_pla
     node.alsa_device = "hw:1,0"
     node.speech_gain = 0.35
     node.length_scale = 1.25
-    node._make_wav_path = MagicMock(
+    node.make_wav_path = MagicMock(
         side_effect=["/tmp/raw.wav", "/tmp/quiet.wav"]
     )
 

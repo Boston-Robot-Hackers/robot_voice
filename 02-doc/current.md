@@ -2,10 +2,10 @@
 
 ## Snapshot
 
-**Branch:** `main` (lives inside `ros2_ws/src/dome_voice/`, sibling to `control/`)
+**Branch:** `main` (lives inside `ros2_ws/src/dome_voice/`, sibling to `dome_control/`)
 
-This package was extracted from `control/voice/` to be a standalone, ROS-free voice pipeline.
-`control/` consumes it via `voice_input_node.py` (the only ROS adapter).
+This package was extracted from `dome_control/voice/` to be a standalone, ROS-free voice pipeline.
+`dome_control/` consumes it via `voice_input_node.py` (the only ROS adapter).
 
 ## What Is Built
 

@@ -1,8 +1,8 @@
 # dome_voice — Notes
 
-## Extraction from control/
+## Extraction from dome_control/
 
-Extracted from `control/voice/` 2026-05-07. Dead files `stt.py` and `wake_word.py` were dropped
+Extracted from `dome_control/voice/` 2026-05-07. Dead files `stt.py` and `wake_word.py` were dropped
 (legacy pyaudio-based classes, broken imports, unused by the production pipeline).
 
 ## arecord vs pyaudio

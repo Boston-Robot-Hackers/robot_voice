@@ -52,7 +52,7 @@ flowchart TD
 
 ## Key Design Decisions
 
-**No ROS in the core.** The pipeline was extracted from a larger ROS package (`control/voice/`) specifically to enable isolated testing. `VoiceRuntime.next_turn()` accepts `ok_fn` (a callable returning bool) instead of calling `rclpy.ok()` directly — in tests this is a lambda counter; in production it is `rclpy.ok`.
+**No ROS in the core.** The pipeline was extracted from a larger ROS package (`dome_control/voice/`) specifically to enable isolated testing. `VoiceRuntime.next_turn()` accepts `ok_fn` (a callable returning bool) instead of calling `rclpy.ok()` directly — in tests this is a lambda counter; in production it is `rclpy.ok`.
 
 **Constrained grammar.** Vosk is used in constrained mode, not free-form transcription. The grammar contains exactly the words the robot understands. This gives near-perfect accuracy for in-vocabulary words and routes everything else to `[unk]`, which the intent mapper rejects cleanly.
 

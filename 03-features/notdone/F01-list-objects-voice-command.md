@@ -6,7 +6,7 @@
 **Tests Written:** no
 **Test Passing:** no
 **Description**: Add "objects" as a recognized voice word mapping to the `list_objects` intent.
-Companion to control/F16. dome_voice owns the grammar and intent mapping.
+Companion to dome_control/F16. dome_voice owns the grammar and intent mapping.
 
 ## How to Demo
 **Setup**: voice pipeline running, say "alexa objects"

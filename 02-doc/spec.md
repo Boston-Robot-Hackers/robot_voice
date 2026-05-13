@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Standalone Python package providing a complete voice pipeline for robot control. No ROS imports. Designed to be consumed by a ROS2 adapter node (e.g. `control/voice_input_node.py`).
+Standalone Python package providing a complete voice pipeline for robot control. No ROS imports. Designed to be consumed by a ROS2 adapter node (e.g. `dome_voice/voice_input_node.py`).
 
 ## Pipeline
 

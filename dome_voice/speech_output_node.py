@@ -24,7 +24,7 @@ def synthesize_to_wav(
 ) -> None:
     """Synthesize text to wav_path using Piper."""
     if not model_path:
-        raise RuntimeError("PIPER_MODEL_PATH is required for speech output")
+        raise RuntimeError("DOME_PIPER_MODEL_PATH is required for speech output")
 
     cmd = [
         piper_bin,
@@ -116,8 +116,8 @@ class SpeechOutputNode(Node):
         self.announcement_sub = self.create_subscription(
             AnnouncementMsg, "/announcement", self.on_announcement, 10
         )
-        self.piper_bin = os.environ.get("PIPER_BIN", "piper")
-        self.piper_model_path = os.environ.get("PIPER_MODEL_PATH", "")
+        self.piper_bin = os.environ.get("DOME_PIPER_BIN", "piper")
+        self.piper_model_path = os.environ.get("DOME_PIPER_MODEL_PATH", "")
         self.alsa_device = os.environ.get("SPEECH_ALSA_DEVICE", "")
         self.tmp_dir = os.environ.get("SPEECH_TMP_DIR", tempfile.gettempdir())
         self.speech_gain = parse_speech_gain(os.environ.get("SPEECH_GAIN", "0.35"))

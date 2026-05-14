@@ -33,8 +33,8 @@ All configuration comes from environment variables, validated at startup by `par
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `PIPER_BIN` | `"piper"` | Path to Piper binary |
-| `PIPER_MODEL_PATH` | `""` | Path to `.onnx` voice model (required for speech) |
+| `DOME_PIPER_BIN` | `"piper"` | Path to Piper binary |
+| `DOME_PIPER_MODEL_PATH` | `""` | Path to `.onnx` voice model (required for speech) |
 | `PIPER_LENGTH_SCALE` | `"1.25"` | TTS speed (>1 = slower) |
 | `SPEECH_ALSA_DEVICE` | `""` | ALSA device string, e.g. `hw:1,0`; empty = default |
 | `SPEECH_GAIN` | `"0.35"` | PCM amplitude multiplier applied after synthesis |

@@ -76,5 +76,23 @@ def main():
         runtime.close()
 
 
+def test_beep():
+    """Test audio output: plays two beeps at different frequencies."""
+    import os
+    from dome_voice.audio_feedback import beep
+    device = os.environ.get("SPEECH_ALSA_DEVICE", "(default)")
+    print(f"Testing beep — SPEECH_ALSA_DEVICE={device}")
+    print("Beep 1 (880 Hz)...")
+    beep(frequency=880, duration=0.3)
+    import time; time.sleep(0.2)
+    print("Beep 2 (220 Hz)...")
+    beep(frequency=220, duration=0.6)
+    print("Done. Did you hear two tones?")
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "beep":
+        test_beep()
+    else:
+        main()

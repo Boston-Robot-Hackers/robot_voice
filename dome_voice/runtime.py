@@ -65,7 +65,7 @@ TUNED_VOICE_PARAMETERS = {
     },
 }
 
-TUNE_CONFIG_ENV_VARS = ("CONTROL_VOICE_TUNE_CONFIG", "VOICE_TUNE_CONFIG")
+TUNE_CONFIG_ENV_VARS = ("DOME_VOICE_CONFIG", "CONTROL_VOICE_TUNE_CONFIG", "VOICE_TUNE_CONFIG")
 
 VOSK_MODEL_PATHS = {
     "small": "~/models/vosk-model-small-en-us-0.15",
@@ -95,6 +95,15 @@ class VoiceRuntimeConfig:
     min_command_secs: float = 0.4
     command_start_secs: float = 2.5
     max_command_secs: float = 8.0
+    beep_wake_freq: int = 880
+    beep_wake_duration: float = 0.3
+    beep_wake_volume: float = 1.0
+    beep_intent_freq: int = 330
+    beep_intent_duration: float = 0.02
+    beep_intent_volume: float = 1.0
+    beep_fail_freq: int = 220
+    beep_fail_duration: float = 0.6
+    beep_fail_volume: float = 1.0
 
     @property
     def vosk_model_path(self) -> str:
@@ -310,6 +319,15 @@ def config_from_tune_mapping(
         min_command_secs=_as_float(stream.get("min_command_secs"), 0.4),
         command_start_secs=_as_float(stream.get("command_start_secs"), 2.5),
         max_command_secs=_as_float(stream.get("max_command_secs"), 8.0),
+        beep_wake_freq=_as_int(_as_dict(data.get("beep")).get("wake_freq"), 880),
+        beep_wake_duration=_as_float(_as_dict(data.get("beep")).get("wake_duration"), 0.3),
+        beep_wake_volume=_as_float(_as_dict(data.get("beep")).get("wake_volume"), 1.0),
+        beep_intent_freq=_as_int(_as_dict(data.get("beep")).get("intent_freq"), 330),
+        beep_intent_duration=_as_float(_as_dict(data.get("beep")).get("intent_duration"), 0.02),
+        beep_intent_volume=_as_float(_as_dict(data.get("beep")).get("intent_volume"), 1.0),
+        beep_fail_freq=_as_int(_as_dict(data.get("beep")).get("fail_freq"), 220),
+        beep_fail_duration=_as_float(_as_dict(data.get("beep")).get("fail_duration"), 0.6),
+        beep_fail_volume=_as_float(_as_dict(data.get("beep")).get("fail_volume"), 1.0),
     )
 
 

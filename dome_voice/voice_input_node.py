@@ -19,11 +19,12 @@ VOICE_STATES = ("IDLE", "LISTENING", "PROCESSING", "SPEAKING")
 
 
 class VoiceInputNode(Node):
-    def __init__(self):
+    def __init__(self, voice_config):
         super().__init__("voice_input")
         self.intent_pub = self.create_publisher(String, "/intent", 10)
         self.state_pub = self.create_publisher(String, "/voice/state", 10)
         self.intent_mapper = IntentMapper()
+        self.voice_config = voice_config
 
     def publish_intent(self, intent: dict) -> None:
         msg = String()
@@ -45,10 +46,10 @@ class VoiceInputNode(Node):
         if intent:
             self.publish_intent(intent)
             self.publish_state("SPEAKING")
-            beep(frequency=330, duration=0.02, device_index=device_index)
+            beep(frequency=self.voice_config.beep_intent_freq, duration=self.voice_config.beep_intent_duration, volume=self.voice_config.beep_intent_volume, device_index=device_index)
         else:
             self.publish_state("SPEAKING")
-            beep(frequency=220, duration=0.15, device_index=device_index)
+            beep(frequency=self.voice_config.beep_fail_freq, duration=self.voice_config.beep_fail_duration, volume=self.voice_config.beep_fail_volume, device_index=device_index)
 
     def process_turn(self, turn: VoiceTurn, device_index: int = 0) -> None:
         if turn.empty:
@@ -62,7 +63,7 @@ class VoiceInputNode(Node):
                 else "Empty turn: no command metadata"
             )
             self.publish_state("SPEAKING")
-            beep(frequency=220, duration=0.15, device_index=device_index)
+            beep(frequency=self.voice_config.beep_fail_freq, duration=self.voice_config.beep_fail_duration, volume=self.voice_config.beep_fail_volume, device_index=device_index)
             return
         self.process_transcript(turn.text, device_index=device_index)
 
@@ -72,7 +73,7 @@ def main():
     device_index = int(os.environ.get("VOICE_DEVICE_INDEX", voice_config.capture_card))
 
     rclpy.init()
-    node = VoiceInputNode()
+    node = VoiceInputNode(voice_config)
     runtime = VoiceRuntime(voice_config)
 
     try:
@@ -86,7 +87,7 @@ def main():
             def on_wake(_wake):
                 node.get_logger().info("Wake word detected — speak your command")
                 node.publish_state("LISTENING")
-                beep(frequency=880, duration=0.02, device_index=device_index)
+                beep(frequency=voice_config.beep_wake_freq, duration=voice_config.beep_wake_duration, volume=voice_config.beep_wake_volume, device_index=device_index)
 
             turn = runtime.next_turn(ok_fn=rclpy.ok, on_wake=on_wake)
             if turn.metadata and not turn.metadata.get("wake", {}).get("wake_hit", False):

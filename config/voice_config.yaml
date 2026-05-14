@@ -1,0 +1,13 @@
+stream_settings:
+  wake_word: hey_marvin
+
+beep:
+  wake_freq: 880        # Hz — wake word detected
+  wake_duration: 0.3    # seconds
+  wake_volume: 1.0      # 0.0–1.0
+  intent_freq: 330      # Hz — intent recognized
+  intent_duration: 0.02
+  intent_volume: 1.0
+  fail_freq: 220        # Hz — no intent / empty turn
+  fail_duration: 0.6
+  fail_volume: 1.0
